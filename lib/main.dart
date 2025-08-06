@@ -1,32 +1,20 @@
 import 'package:flutter/material.dart';
-
-void main() {
+void main(){
   runApp(const MyApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends StatelessWidget{
+  const MyApp({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.black, Colors.red],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: const Center(
-            child: Text(
-              'Hello',
-              style: TextStyle(color: Colors.white, fontSize: 24,),
-            ),
-          ),
-        ),
-      ),
+      home : Scaffold(
+        backgroundColor: Colors.yellow,
+        body: Column( 
+          children: [
+            Text("joy bangla jitbe abar ")
+          ]
+        )
+      )
     );
   }
 }
