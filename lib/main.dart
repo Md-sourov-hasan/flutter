@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget{
         backgroundColor: Colors.yellow,
         body: Column( 
           children: [
-            Text("joy bangla jitbe abar ")
+            Text(" noukar din ses jamayater bangladesh    ")
           ]
         )
       )
