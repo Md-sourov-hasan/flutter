@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
-void main(){
-  runApp(const MyApp());
-}
-class MyApp extends StatelessWidget{
-  const MyApp({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      home : Scaffold(
-        backgroundColor: Colors.yellow,
-        body: Column( 
-          children: [
-            Text(" noukar din ses jamayater bangladesh    ")
-          ]
-        )
-      )
-    );
-  }
+
+import 'package:first_app/start_screen.dart';
+
+void main() {
+  runApp(MaterialApp(home: Scaffold(body: StartScreen())));
 }
