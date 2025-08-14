@@ -23,6 +23,11 @@ void switchScreen(){
 
   @override
   Widget build(context){ 
+  Widget screenwidget = StartScreen(switchScreen);
+if(activeScreen == "questions-screen"){
+screenwidget = const QuestionsScreen();
+}
+  
     return MaterialApp(
   home: Scaffold(
     body: Container( 
@@ -37,7 +42,7 @@ void switchScreen(){
         ),
 
       ),
-      child: activeScreen == "start-screen" ? StartScreen(switchScreen): const QuestionsScreen(),
+      child: screenwidget,
 
     ),
   )
