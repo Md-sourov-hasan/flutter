@@ -17,7 +17,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       child: Column(
        mainAxisAlignment: MainAxisAlignment.center, 
         children: [
-       const Text('the question'),
+
+
+       const Text('the question', style:TextStyle(
+        color:Colors.white
+       ) ,),
+
+
         const SizedBox(height: 30,),
         ElevatedButton(onPressed: () {}, child: const Text('answer 1'),),
          ElevatedButton(onPressed: () {}, child: const Text('answer 2'),),
