@@ -15,6 +15,6 @@ const AnswerButton({super.key,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),
         ),
-         child:  Text(answerText),);
+         child:  Text(answerText, textAlign: TextAlign.center,),);
   } 
 }
