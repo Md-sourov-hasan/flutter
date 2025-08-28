@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:first_app/widgets/expenses.dart';
 
-void main(){
+import 'package:first_app/login.dart';
+import 'package:flutter/material.dart';
+
+void main() {
   runApp(MaterialApp(
-   home:  Expenses()
-    ),
-  );
+    debugShowCheckedModeBanner: false,
+    initialRoute: "login",
+    routes: {"login":(contex)=>MyLogin()},
+  ));
 }
