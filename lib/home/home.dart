@@ -24,6 +24,10 @@ class HomeView extends StatelessWidget {
       
       ],
       bottom: TabBar(
+        labelColor: Colors.white,
+        labelStyle: TextStyle(
+          fontWeight: FontWeight.bold
+        ),
         tabs: [
            Tab(
         icon: Icon(Icons.group),
