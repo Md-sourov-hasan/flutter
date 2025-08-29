@@ -25,12 +25,20 @@ class HomeView extends StatelessWidget {
       ],
       bottom: TabBar(
         tabs: [
+           Tab(
+        icon: Icon(Icons.group),
+      ) ,
+      
       Tab(
         text: "chats",
       ) ,
         Tab(
         text: "updates",
+      ) ,
+       Tab(
+        text: "calls",
       ) 
+      
         ],
       ),
       
