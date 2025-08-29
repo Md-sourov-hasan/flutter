@@ -69,7 +69,7 @@ Widget build(BuildContext context) {
               fontWeight: FontWeight.bold,
             ),
             ),
-            Container(
+         data['unread']== 0 ? SizedBox() :   Container(
               height: 25,
               width: 25,
               decoration: BoxDecoration(
