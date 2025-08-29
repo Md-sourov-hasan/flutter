@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -20,14 +21,29 @@ class HomeView extends StatelessWidget {
       actions: [
         IconButton(onPressed: () {}, icon : Icon(Icons.camera_alt_outlined, color : Colors.white)),
         IconButton(onPressed: () {}, icon : Icon(Icons.search, color : Colors.white)),
-        IconButton(onPressed: () {}, icon : Icon(Icons.more_vert, color : Colors.white)),
-      
+        // IconButton(onPressed: () {}, icon : Icon(Icons.more_vert, color : Colors.white)),
+      PopupMenuButton(itemBuilder:(context){
+        return[
+          PopupMenuItem(child: Text("new group")),
+           PopupMenuItem(child: Text("new broadcast")),
+            PopupMenuItem(child: Text("linked device")),
+             PopupMenuItem(child: Text("starred mesase")),
+                PopupMenuItem(child: Text("settings")),
+        ];
+      },
+      icon: Icon(
+        Icons.more_vert,
+        color:Colors.white,
+      ),
+      )
       ],
       bottom: TabBar(
         labelColor: Colors.white,
         labelStyle: TextStyle(
           fontWeight: FontWeight.bold
         ),
+        unselectedLabelColor: const Color.fromARGB(255, 218, 212, 212),
+        indicatorColor: Colors.white,
         tabs: [
            Tab(
         icon: Icon(Icons.group),
@@ -47,7 +63,13 @@ class HomeView extends StatelessWidget {
       ),
       
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xff008268),
+        onPressed: () {}, 
+      child: Icon(Icons.message,color: Colors.white,),
+
       
+      ),
       
       ),
     );
