@@ -63,10 +63,22 @@ class HomeView extends StatelessWidget {
       ),
       
       ),
+      
+     body: Column(
+      children: [
+      ListTile(
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage('https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747'),
+        ),
+      ),
+
+      ],
+     ),
+      
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff008268),
         onPressed: () {}, 
-      child: Icon(Icons.message,color: Colors.white,),
+      child: const Icon(Icons.message,color: Colors.white,),
 
       
       ),
