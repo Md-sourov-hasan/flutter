@@ -9,12 +9,18 @@ appBar: AppBar(
   backgroundColor: Color(0xff008268),
   centerTitle: false,
 
-  title: Text("whatsapp",
+  title:const Text("whatsapp",
 style: TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.w600,
 ),
  ),
+actions: [
+  IconButton(onPressed: () {}, icon : Icon(Icons.camera_alt_outlined, color : Colors.white)),
+  IconButton(onPressed: () {}, icon : Icon(Icons.search, color : Colors.white)),
+  IconButton(onPressed: () {}, icon : Icon(Icons.more_vert, color : Colors.white))
+],
+
 ),
 
 
