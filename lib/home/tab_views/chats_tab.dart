@@ -12,6 +12,13 @@ final List<Map<String, dynamic>>chats = [
       'last_message_time':'4 :10 pm',
       'unread':0,
   },
+  {
+    'name': 'md shakib',
+     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+      'last_message':'custom khelba',
+      'last_message_time':'3 :10 pm',
+      'unread':0,
+  },
   
 
 
