@@ -15,7 +15,7 @@ final List<Map<String, dynamic>>chats = [
   },
   {
     'name': 'md shakib',
-     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+     'profile_picture':'https://static.wikitide.net/deathbattlewiki/1/10/Portrait.satorugojo.png',
       'last_message':'custom khelba',
       'last_message_time':'3 :10 pm',
       'unread':0,
@@ -29,7 +29,7 @@ final List<Map<String, dynamic>>chats = [
   },
    {
     'name': 'md josim',
-     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+     'profile_picture':'https://static.wikitide.net/deathbattlewiki/1/10/Portrait.satorugojo.png',
       'last_message':'custom harba',
       'last_message_time':'1 :10 pm',
       'unread':1,
@@ -44,16 +44,17 @@ Widget build(BuildContext context) {
   return ListView.builder(
     itemCount: chats.length,
     itemBuilder: (context, index) {
+    var  data =chats[index];
       return ListTile(
         leading: CircleAvatar(
-          backgroundImage: NetworkImage('https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747'),
+          backgroundImage: NetworkImage(data['profile_picture']),
         ),
-        title: Text("md sourov",
+        title: Text(data["name"],
         style: TextStyle(
           fontWeight: FontWeight.w600,
         ),
         ),
-        subtitle: Text('how are yoy',
+        subtitle: Text(data['last_message'],
         style: TextStyle(
           color: const Color.fromARGB(255, 82, 79, 79),
         ),
@@ -62,7 +63,7 @@ Widget build(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text('4 : 40 pm',
+            Text(data['last_message_time'],
             style: TextStyle(
               color:  Color(0xff008268),
               fontWeight: FontWeight.bold,
@@ -76,7 +77,7 @@ Widget build(BuildContext context) {
                 shape: BoxShape.circle,
               ),
               child: Center(
-                child: Text('2',
+                child: Text(data['unread'].toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
