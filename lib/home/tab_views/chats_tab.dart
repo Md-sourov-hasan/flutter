@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ChatsTab extends StatelessWidget {
-const ChatsTab({super.key});
+ ChatsTab({super.key});
+
+final List<Map<String, dynamic>>chats = [
+
+  <String, dynamic>{
+    'name': 'md sourov',
+     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+      'last_message':'how are you',
+      'last_message_time':'4 :10 pm',
+      'unread':0,
+  },
+  
+
+
+];
+
 
 @override
   Widget build(BuildContext context) {
