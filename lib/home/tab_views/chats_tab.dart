@@ -5,7 +5,8 @@ class ChatsTab extends StatelessWidget {
 
 final List<Map<String, dynamic>>chats = [
 
-  <String, dynamic>{
+  <String, dynamic>
+  {
     'name': 'md sourov',
      'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
       'last_message':'how are you',
@@ -19,17 +20,31 @@ final List<Map<String, dynamic>>chats = [
       'last_message_time':'3 :10 pm',
       'unread':0,
   },
-  
+   {
+    'name': 'md asad',
+     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+      'last_message':'joy bangla',
+      'last_message_time':'2 :10 pm',
+      'unread':4,
+  },
+   {
+    'name': 'md josim',
+     'profile_picture':'https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747',
+      'last_message':'custom harba',
+      'last_message_time':'1 :10 pm',
+      'unread':1,
+  },
 
 
 ];
 
 
 @override
-  Widget build(BuildContext context) {
-   return Column(
-      children: [
-      ListTile(
+Widget build(BuildContext context) {
+  return ListView.builder(
+    itemCount: chats.length,
+    itemBuilder: (context, index) {
+      return ListTile(
         leading: CircleAvatar(
           backgroundImage: NetworkImage('https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747'),
         ),
@@ -71,12 +86,10 @@ final List<Map<String, dynamic>>chats = [
             ),
           ],
         ),
-      ),
-
-      ],
-     )
-;
-  }
+      );
 
 
+    },
+  );
+}
 }
