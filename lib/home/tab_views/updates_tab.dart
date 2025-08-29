@@ -11,7 +11,48 @@ const UpdateTab({super.key});
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Status'),
-        
+        const SizedBox(
+          height: 5,
+        ),
+
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: Stack(
+            alignment: Alignment.bottomRight,
+            children: [
+              CircleAvatar(
+            radius: 25,
+            backgroundImage: NetworkImage('https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png/revision/latest?cb=20140418091747'),
+
+
+          ),
+
+          Container(
+            height: 22,
+            width: 22,
+           decoration: BoxDecoration(
+             color:  Color(0xff008268),
+             shape:BoxShape.circle, 
+           ),
+           child: Center(
+            child:Icon(Icons.add,
+            color:Colors.white,
+            size: 20,
+            ) ,
+           ),
+          )
+            ],
+          ),
+          title: Text('my status',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+          subtitle: Text('tap to add status update',
+          
+          ),
+        ),
+
       ],
      ),
    );
