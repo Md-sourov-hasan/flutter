@@ -5,8 +5,15 @@ const UpdateTab({super.key});
 
 @override
   Widget build(BuildContext context) {
-   return const Center(
-    child: Text('update'),
+   return Padding(
+     padding: const EdgeInsets.all(15.0),
+     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Status'),
+        
+      ],
+     ),
    );
   }
 
