@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'bottom_nav/bottom_nav.dart';  // relative import from lib
+import 'package:first_app/home/home.dart';  // তোমার HomeView এর path
 
 void main() {
-  runApp(const FirstApp());
+  runApp(const MyApp());
 }
 
-class FirstApp extends StatelessWidget {
-  const FirstApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const BottomNavBar(),
+      debugShowCheckedModeBanner: false, // উপরের debug banner টা remove হবে
+      home: const HomeView(), // তোমার home.dart এর widget এখানে call করা হলো
     );
   }
 }
