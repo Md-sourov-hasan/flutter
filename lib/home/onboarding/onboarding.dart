@@ -27,10 +27,27 @@ class OnboardingView extends StatelessWidget {
                 color:  Color.fromARGB(255, 58, 56, 56),
               ),
               ),
-              CustomButton(
-                 label: 'Get Started',
-                 onTap: () {},
-              ),
+const SizedBox(height: 300),
+           CustomButton(
+  label: 'Get Started',
+  onTap: () {
+    print('Button tapped!');
+  },
+),
+
+const SizedBox(height: 20),
+
+// "Create an account" link-style button
+CustomButton(
+  label: 'Create an account',
+  isPrimary: false, // এটা ছোট লিঙ্ক হবে
+  onTap: () {
+    print('Create account tapped!');
+  },
+),
+
+
+
 
             ],
           ),
