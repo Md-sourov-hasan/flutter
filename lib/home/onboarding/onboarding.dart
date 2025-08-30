@@ -1,3 +1,4 @@
+import 'package:first_app/home/auth/login.dart';
 import 'package:first_app/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,10 @@ const SizedBox(height: 300),
            CustomButton(
   label: 'Get Started',
   onTap: () {
-    print('Button tapped!');
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+
+    return  LoginView();
+  }));
   },
 ),
 
