@@ -1,6 +1,9 @@
+import 'package:first_app/home/notes/create_or_update.dart';
 import 'package:first_app/widget/custom_notes_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 
 class NotesView extends StatelessWidget{
 const NotesView ({super.key});
@@ -35,7 +38,9 @@ const NotesView ({super.key});
 
         floatingActionButton: FloatingActionButton(
           shape: CircleBorder(),
-          onPressed: (){},
+          onPressed: (){
+            Get.to(()=> CreateOrUpdateNoteView());
+          },
         child: Icon(
           Icons.add,
           color: Colors.blue,
