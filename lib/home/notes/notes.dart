@@ -33,6 +33,16 @@ const NotesView ({super.key});
         
         ),
 
+        floatingActionButton: FloatingActionButton(
+          shape: CircleBorder(),
+          onPressed: (){},
+        child: Icon(
+          Icons.add,
+          color: Colors.blue,
+        ),
+        
+        ),
+
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:first_app/home/notes/notes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 // তোমার HomeView এর path
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false, // উপরের debug banner টা remove হবে
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
