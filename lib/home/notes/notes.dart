@@ -1,3 +1,4 @@
+import 'package:first_app/widget/custom_notes_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -20,13 +21,7 @@ const NotesView ({super.key});
         padding: EdgeInsets.all(12),
         
         itemBuilder: (context, index) {
-          return Container(
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(11),
-            ),
-          );
+          return CustomNotesTile();
         },
        separatorBuilder: (context,index){
         return const SizedBox(
