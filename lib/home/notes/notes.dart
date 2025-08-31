@@ -17,9 +17,16 @@ const NotesView ({super.key});
         ],
       ),
       body: ListView.separated(
+        padding: EdgeInsets.all(12),
         
         itemBuilder: (context, index) {
-          return Text('fgfg')
+          return Container(
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(11),
+            ),
+          );
         },
        separatorBuilder: (context,index){
         return const SizedBox(
@@ -27,7 +34,7 @@ const NotesView ({super.key});
 
         );
        },
-        itemCount: 5,
+        itemCount: 50,
         
         ),
 
