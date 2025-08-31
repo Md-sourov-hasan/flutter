@@ -31,7 +31,7 @@ dev_dependencies:
 # Flutter-specific configuration
 flutter:
 
-  # Include Material Icons font
+  # Include Material Icons font  
   uses-material-design: true
 
   # Declare asset folders or individual files

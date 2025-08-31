@@ -1,4 +1,4 @@
-import 'package:first_app/home/onboarding/onboarding.dart';
+import 'package:first_app/home/notes/notes.dart';
 import 'package:flutter/material.dart';
 // তোমার HomeView এর path
 
@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // উপরের debug banner টা remove হবে
-      home: const OnboardingView(), // তোমার home.dart এর widget এখানে call করা হলো
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const NotesView(), // তোমার home.dart এর widget এখানে call করা হলো
     );
   }
 }
