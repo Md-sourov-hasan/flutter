@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class CustomNotesTile extends StatelessWidget{
@@ -42,6 +43,10 @@ class CustomNotesTile extends StatelessWidget{
                      style: TextStyle(
                       fontSize: 10,
                      ),
+                     ),
+                     Icon(Icons.delete,
+                     size: 18,
+                     color:Color.fromARGB(255, 158, 151, 151) ,
                      ),
                    ],
                  ),
