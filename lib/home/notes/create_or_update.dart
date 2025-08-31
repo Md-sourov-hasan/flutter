@@ -27,7 +27,42 @@ class CreateOrUpdateNoteView extends StatelessWidget{
           ),
         ],
       ),
-      
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            TextFormField(
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: "Tile",
+                hintStyle: TextStyle(
+                  color: const Color.fromARGB(255, 87, 84, 84), 
+                ),
+              ),
+            ),
+            SizedBox(
+                height: 10,
+            ),
+            Expanded(
+              child: TextFormField(
+                minLines: 40,
+                maxLines: 40,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Note something down",
+                  hintStyle: TextStyle(
+                    color: const Color.fromARGB(255, 87, 84, 84), 
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
