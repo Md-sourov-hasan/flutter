@@ -16,7 +16,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8        # iOS-style icons
+  cupertino_icons: ^1.0.8 
+  get: ^4.7.2       # iOS-style icons
   uuid: ^4.3.3                   # UUID generator
   google_fonts: ^6.3.0          # Custom Google Fonts support
 
