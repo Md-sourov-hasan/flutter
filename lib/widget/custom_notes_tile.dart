@@ -22,6 +22,9 @@ class CustomNotesTile extends StatelessWidget{
                     fontSize: 16,
                   ),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
                  Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.',
                  maxLines: 1,
                  overflow: TextOverflow.ellipsis,
@@ -29,12 +32,20 @@ class CustomNotesTile extends StatelessWidget{
                   color: Color.fromARGB(246, 63, 61, 61),
                  ),
                  ),
-                 Text('created at : 10/02/2002',
-                 style: TextStyle(
-                  fontSize: 10,
+                 SizedBox(
+                  height: 5,
                  ),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                     Text('created at : 10/02/2002',
+                     style: TextStyle(
+                      fontSize: 10,
+                     ),
+                     ),
+                   ],
                  ),
-                 
+
                 ],
               ),
           );
