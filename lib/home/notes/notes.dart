@@ -1,6 +1,6 @@
 import 'package:first_app/controller/notes_controller.dart';
-import 'package:first_app/home/notes/create_or_update.dart';
 import 'package:first_app/widget/custom_notes_tile.dart';
+import 'package:first_app/home/notes/create_or_update.dart';  // <-- এটা লাগবে
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,17 +9,17 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NotesController());
+    final controller = Get.find<NotesController>();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF5F5F5),
-        title: Text('Notes'),
+        title: const Text('Notes'),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),
@@ -28,9 +28,9 @@ class NotesView extends StatelessWidget {
           return const Center(child: Text('No Notes'));
         } else {
           return ListView.separated(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             itemCount: controller.notes.length,
-            separatorBuilder: (context, index) => SizedBox(height: 10),
+            separatorBuilder: (_, __) => const SizedBox(height: 10),
             itemBuilder: (context, index) {
               return CustomNotesTile(
                 note: controller.notes[index],
@@ -41,12 +41,13 @@ class NotesView extends StatelessWidget {
         }
       }),
       floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         onPressed: () {
-          Get.to(() => CreateOrUpdateNoteView());
+          Get.to(() => const CreateOrUpdateNoteView());
         },
-        child: Icon(Icons.add, color: Colors.blue),
+        child: const Icon(Icons.add, color: Colors.blue),
       ),
     );
   }
 }
+

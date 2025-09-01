@@ -3,45 +3,56 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NotesController extends GetxController {
-  RxList<NoteModel> notes = <NoteModel>[].obs;
+  // Reactive notes list using RxList
+  final RxList<NoteModel> notes = <NoteModel>[].obs;
 
-  TextEditingController titleController = TextEditingController();
-  TextEditingController discriptionController = TextEditingController();
+  // Text controllers for input fields
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController discriptionController = TextEditingController();
 
+  // Create a new note
   void createNote() {
-    if (titleController.text.isEmpty || discriptionController.text.isEmpty) {
-      Get.snackbar(
-        'Error',
-        'All fields are required',
-       
+    final title = titleController.text.trim();
+    final description = discriptionController.text.trim();
+
+    if (title.isNotEmpty || description.isNotEmpty) {
+      notes.add(
+        NoteModel(
+          title: title,
+          description: description,
+          createdAt: DateTime.now(),
+          updatedAt: null,
+        ),
       );
-      return;
+      clearFields();
     }
-
-    notes.add(
-      NoteModel(
-        title: titleController.text,
-        description: discriptionController.text,
-        createdAt: DateTime.now(),
-      ),
-    );
-
-    update();
-
-    titleController.clear();
-    discriptionController.clear();
-
-    Get.back();
   }
 
-  void delete(int index) {
-    notes.removeAt(index); // ✅ index অনুযায়ী remove করছি
-    update(); // ✅ UI রিফ্রেশ হবে
+  // Update an existing note
+  void updateNote(int index) {
+    final title = titleController.text.trim();
+    final description = discriptionController.text.trim();
 
-    Get.snackbar(
-      'Success',
-      'The note has been deleted',
-     
-    );
+    if (title.isNotEmpty || description.isNotEmpty) {
+      final updatedNote = notes[index];
+      updatedNote.title = title;
+      updatedNote.description = description;
+      updatedNote.updatedAt = DateTime.now();
+
+      notes[index] = updatedNote; // re-assign to trigger update
+
+      clearFields();
+    }
+  }
+
+  // Delete a note by index
+  void delete(int index) {
+    notes.removeAt(index);
+  }
+
+  // Clear input fields
+  void clearFields() {
+    titleController.clear();
+    discriptionController.clear();
   }
 }

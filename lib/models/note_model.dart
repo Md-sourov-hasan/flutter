@@ -1,8 +1,8 @@
 class NoteModel {
-  final String title;
-  final String description;
-  final DateTime createdAt;  // <-- এখানে DateTime ব্যবহার করো
-  final DateTime? updatedAt;
+  String title;
+  String description;
+  DateTime createdAt;
+  DateTime? updatedAt;
 
   NoteModel({
     required this.title,
