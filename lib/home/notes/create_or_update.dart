@@ -1,5 +1,6 @@
 import 'package:first_app/controller/notes_controller.dart';
 import 'package:first_app/models/note_model.dart';
+import 'package:first_app/home/notes/notes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,36 @@ class _CreateOrUpdateNoteViewState extends State<CreateOrUpdateNoteView> {
     }
   }
 
+  void _handleSave() {
+    final title = controller.titleController.text.trim();
+    final description = controller.discriptionController.text.trim();
+
+    // ✅ Validation
+    if (title.isEmpty || description.isEmpty) {
+      Get.snackbar(
+        "Error",
+        "All text fields are required",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent,
+        colorText: Colors.white,
+        margin: const EdgeInsets.all(10),
+        borderRadius: 10,
+        icon: const Icon(Icons.error, color: Colors.white),
+      );
+      return;
+    }
+
+    // ✅ Create or Update Logic (No snackbar)
+    if (widget.note == null) {
+      controller.createNote();
+    } else {
+      controller.updateNote(widget.noteIndex!);
+    }
+
+    // Navigate back to NotesView
+    Get.offAll(() => const NotesView());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,22 +65,13 @@ class _CreateOrUpdateNoteViewState extends State<CreateOrUpdateNoteView> {
         backgroundColor: const Color(0xFFF5F5F5),
         automaticallyImplyLeading: false,
         leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
+          onPressed: () => Get.back(),
           icon: const Icon(Icons.arrow_back),
         ),
         title: Text('${widget.note == null ? "Create" : "Update"} Note'),
         actions: [
           IconButton(
-            onPressed: () {
-              if (widget.note == null) {
-                controller.createNote();
-              } else {
-                controller.updateNote(widget.noteIndex!);
-              }
-              Get.back();
-            },
+            onPressed: _handleSave,
             icon: const Icon(Icons.done),
           ),
         ],
@@ -76,8 +98,9 @@ class _CreateOrUpdateNoteViewState extends State<CreateOrUpdateNoteView> {
             Expanded(
               child: TextFormField(
                 controller: controller.discriptionController,
-                minLines: 40,
-                maxLines: 40,
+                minLines: null,
+                maxLines: null,
+                expands: true,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Note something down",
