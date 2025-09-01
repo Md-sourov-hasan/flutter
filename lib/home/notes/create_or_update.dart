@@ -1,3 +1,4 @@
+import 'package:first_app/controller/notes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -7,6 +8,7 @@ class CreateOrUpdateNoteView extends StatelessWidget{
   const CreateOrUpdateNoteView({super.key});
   @override
   Widget build(BuildContext context) {
+    final controller =Get.put(NotesController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFf5f5f5f5f5f5f5),
@@ -32,6 +34,7 @@ class CreateOrUpdateNoteView extends StatelessWidget{
         child: Column(
           children: [
             TextFormField(
+              controller: controller.titleController,
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
@@ -49,6 +52,7 @@ class CreateOrUpdateNoteView extends StatelessWidget{
             ),
             Expanded(
               child: TextFormField(
+                controller: controller.discriptionController,
                 minLines: 40,
                 maxLines: 40,
                 decoration: InputDecoration(
