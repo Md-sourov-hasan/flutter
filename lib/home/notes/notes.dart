@@ -1,7 +1,9 @@
+import 'package:first_app/controller/notes_controller.dart';
 import 'package:first_app/home/notes/create_or_update.dart';
 import 'package:first_app/widget/custom_notes_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 
@@ -10,6 +12,8 @@ const NotesView ({super.key});
 
 @override
   Widget build(BuildContext context) {
+               Get.put(NotesController());
+
     return Scaffold(
       backgroundColor: Color(0xFFf5f5f5f5f5f5f5),
       appBar: AppBar(
