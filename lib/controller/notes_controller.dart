@@ -8,7 +8,9 @@ class NotesController extends GetxController{
     TextEditingController discriptionController =TextEditingController();
     void createNote(){
       if(titleController.text.isEmpty || discriptionController.text.isEmpty ){
-       Get.snackbar('Error', 'all fields is requred');
+       Get.snackbar('Error', 'all fields is requred',
+       snackPosition: SnackPosition.BOTTOM,
+       );
        return;
       }
       notes.add(NoteModel(
