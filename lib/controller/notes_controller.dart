@@ -7,6 +7,10 @@ class NotesController extends GetxController{
   TextEditingController titleController =TextEditingController();
     TextEditingController discriptionController =TextEditingController();
     void createNote(){
+      if(titleController.text.isEmpty){
+       Get.snackbar('Error', 'all fields is requred');
+       return;
+      }
       notes.add(NoteModel(
         title: titleController.text,
          description: discriptionController.text, 

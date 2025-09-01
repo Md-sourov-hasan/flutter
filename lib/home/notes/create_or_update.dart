@@ -25,7 +25,11 @@ class CreateOrUpdateNoteView extends StatelessWidget{
         title: Text('create note'),
         centerTitle: false,
         actions: [
-          TextButton(onPressed: () {}, child: const Icon(Icons.done)
+          TextButton(onPressed: () {
+            controller.createNote();
+          }, 
+          
+          child: const Icon(Icons.done)
           ),
         ],
       ),
