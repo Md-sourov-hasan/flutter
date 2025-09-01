@@ -18,52 +18,51 @@ class CustomNotesTile extends StatelessWidget {
     final controller = Get.find<NotesController>();
 
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5F5),
         borderRadius: BorderRadius.circular(11),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             note.title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 16,
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             note.description,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromARGB(246, 63, 61, 61),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Created at: ${note.createdAt.toString().split(" ").first}',
-                style: TextStyle(fontSize: 10),
+                style: const TextStyle(fontSize: 10),
               ),
               if (note.updatedAt != null)
                 Text(
                   'Updated at: ${note.updatedAt!.toString().split(" ").first}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 10,
                     color: Color.fromARGB(246, 63, 61, 61),
                   ),
                 ),
               IconButton(
                 onPressed: () {
-                  controller.notes.removeAt(index);
+                  controller.delete(index); // ✅ সঠিকভাবে delete ফাংশন কল
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.delete,
                   size: 18,
                   color: Color.fromARGB(246, 63, 61, 61),
