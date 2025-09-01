@@ -12,31 +12,31 @@ class NotesView extends StatelessWidget {
     final controller = Get.put(NotesController());
 
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Color(0xFFF5F5F5),
-        centerTitle: false,
+        backgroundColor: const Color(0xFFF5F5F5),
         title: Text('Notes'),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.settings),
+          ),
         ],
       ),
       body: Obx(() {
         if (controller.notes.isEmpty) {
-          return const Center(
-            child: Text('No Notes'),
-          );
+          return const Center(child: Text('No Notes'));
         } else {
           return ListView.separated(
-          
             padding: EdgeInsets.all(12),
-            itemBuilder: (context, index) {
-              return CustomNotesTile(note: controller.notes[index]);
-            },
-            separatorBuilder: (context, index) {
-              return const SizedBox(height: 10);
-            },
             itemCount: controller.notes.length,
+            separatorBuilder: (context, index) => SizedBox(height: 10),
+            itemBuilder: (context, index) {
+              return CustomNotesTile(
+                note: controller.notes[index],
+                index: index,
+              );
+            },
           );
         }
       }),
@@ -45,10 +45,7 @@ class NotesView extends StatelessWidget {
         onPressed: () {
           Get.to(() => CreateOrUpdateNoteView());
         },
-        child: Icon(
-          Icons.add,
-          color: Colors.blue,
-        ),
+        child: Icon(Icons.add, color: Colors.blue),
       ),
     );
   }

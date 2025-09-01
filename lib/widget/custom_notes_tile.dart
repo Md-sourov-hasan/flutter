@@ -1,13 +1,22 @@
+import 'package:first_app/controller/notes_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/models/note_model.dart'; // Make sure to import this
+import 'package:first_app/models/note_model.dart';
+import 'package:get/get.dart';
 
 class CustomNotesTile extends StatelessWidget {
   final NoteModel note;
+  final int index;
 
-  const CustomNotesTile({required this.note, super.key});
+  const CustomNotesTile({
+    required this.note,
+    required this.index,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<NotesController>();
+
     return Container(
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -39,23 +48,26 @@ class CustomNotesTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'created at: ${note.createdAt.toString().split(" ").first}',
-                style: TextStyle(
-                  fontSize: 10,
-                ),
+                'Created at: ${note.createdAt.toString().split(" ").first}',
+                style: TextStyle(fontSize: 10),
               ),
               if (note.updatedAt != null)
-              Text(
-                'Updated At :${note.updatedAt!.toString().split(" ").first}',
-                style: TextStyle(
-                  fontSize: 10,
-                  color:  Color.fromARGB(246, 63, 61, 61),
+                Text(
+                  'Updated at: ${note.updatedAt!.toString().split(" ").first}',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Color.fromARGB(246, 63, 61, 61),
+                  ),
                 ),
-              ),
-              Icon(
-                Icons.delete,
-                size: 18,
-                color: Color.fromARGB(255, 158, 151, 151),
+              IconButton(
+                onPressed: () {
+                  controller.notes.removeAt(index);
+                },
+                icon: Icon(
+                  Icons.delete,
+                  size: 18,
+                  color: Color.fromARGB(246, 63, 61, 61),
+                ),
               ),
             ],
           ),

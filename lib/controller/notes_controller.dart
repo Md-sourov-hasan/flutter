@@ -25,4 +25,7 @@ class NotesController extends GetxController{
 
          Get.back();
     }
+ void delete(int index){
+    notes.remove(index);
+ }
 }
