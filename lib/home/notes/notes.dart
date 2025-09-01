@@ -28,6 +28,7 @@ class NotesView extends StatelessWidget {
           );
         } else {
           return ListView.separated(
+          
             padding: EdgeInsets.all(12),
             itemBuilder: (context, index) {
               return CustomNotesTile(note: controller.notes[index]);

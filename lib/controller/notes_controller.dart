@@ -20,5 +20,9 @@ class NotesController extends GetxController{
          ),
          );
          update();
+         titleController.clear();
+         discriptionController.clear();
+
+         Get.back();
     }
 }

@@ -44,6 +44,14 @@ class CustomNotesTile extends StatelessWidget {
                   fontSize: 10,
                 ),
               ),
+              if (note.updatedAt != null)
+              Text(
+                'Updated At :${note.updatedAt!.toString().split(" ").first}',
+                style: TextStyle(
+                  fontSize: 10,
+                  color:  Color.fromARGB(246, 63, 61, 61),
+                ),
+              ),
               Icon(
                 Icons.delete,
                 size: 18,
