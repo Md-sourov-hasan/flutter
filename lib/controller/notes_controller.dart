@@ -16,7 +16,6 @@ class NotesController extends GetxController {
     final title = titleController.text.trim();
     final description = discriptionController.text.trim();
 
-    // ✅ যদি দুইটিই খালি থাকে তাহলে snackbar দেখাবে
     if (title.isEmpty || description.isEmpty) {
       Get.snackbar(
         "Error",
@@ -28,7 +27,6 @@ class NotesController extends GetxController {
       return;
     }
 
-    // ✅ অন্যথায় note add হবে
     notes.add(
       NoteModel(
         title: title,
@@ -38,7 +36,6 @@ class NotesController extends GetxController {
       ),
     );
     storeData();
-
     clearFields();
 
     Get.snackbar(
@@ -50,7 +47,6 @@ class NotesController extends GetxController {
     );
   }
 
-  // Update an existing note
   void updateNote(int index) {
     final title = titleController.text.trim();
     final description = discriptionController.text.trim();
@@ -62,6 +58,7 @@ class NotesController extends GetxController {
       updatedNote.updatedAt = DateTime.now();
 
       notes[index] = updatedNote; // re-assign to trigger update
+      storeData(); // ✅ Update এর পর save করতে হবে
 
       clearFields();
 
@@ -75,11 +72,10 @@ class NotesController extends GetxController {
     }
   }
 
-  // Delete a note by index
   void delete(int index) {
     notes.removeAt(index);
+    storeData(); // ✅ Delete এর পরেও save করতে হবে
 
-    // ✅ delete করার পর snackbar দেখাবে
     Get.snackbar(
       "Deleted",
       "Note deleted successfully!",
@@ -87,50 +83,56 @@ class NotesController extends GetxController {
       backgroundColor: Colors.orange,
       colorText: Colors.white,
     );
-    storeData();
   }
 
-void storeData() async {
-  var prefs = await SharedPreferences.getInstance();
+  // Save notes in SharedPreferences
+  void storeData() async {
+    var prefs = await SharedPreferences.getInstance();
 
-  var notesListMap = notes.map((note) {
-    return {
-      'title': note.title,
-      'description': note.description,
-      'created_at': note.createdAt.toString(),
-      'updated_at': note.updatedAt.toString(),
-    };
-  }).toList();
-
-  var notesListString = jsonEncode(notesListMap);
-
-  prefs.setString('notes', notesListString);
-}
-
-void loadNotes() async{
-  var prefs= await SharedPreferences.getInstance();
-
-  var notesListStrin=prefs.getString('notes');
-  if(notesListStrin!=null){
-    var notesListMap=jsonDecode(notesListStrin) as List;
-    var notesListModel=notesListMap.map((notes){
-
-      return NoteModel(
-        title: notes['title'],
-         description: notes['descrption'],
-          createdAt: DateTime.parse(notes['created_at']),
-          updatedAt: notes['updated_at']=='null'?null : DateTime.now(),
-          );
+    var notesListMap = notes.map((note) {
+      return {
+        'title': note.title,
+        'description': note.description,
+        'created_at': note.createdAt.toString(),
+        'updated_at': note.updatedAt?.toString(), // ✅ null-safe
+      };
     }).toList();
 
-    notes.addAll(notesListModel);
-    update();
-    
+    var notesListString = jsonEncode(notesListMap);
+    prefs.setString('notes', notesListString);
   }
-}
-// Clear input fields
-void clearFields() {
-  titleController.clear();
-  discriptionController.clear();
-}
+
+  // Load notes from SharedPreferences
+  void loadNotes() async {
+    var prefs = await SharedPreferences.getInstance();
+
+    var notesListString = prefs.getString('notes');
+    if (notesListString != null) {
+      var notesListMap = jsonDecode(notesListString) as List;
+      var notesListModel = notesListMap.map((note) {
+        return NoteModel(
+          title: note['title'],
+          description: note['description'], // ✅ spelling ঠিক করা হলো
+          createdAt: DateTime.parse(note['created_at']),
+          updatedAt: note['updated_at'] == null
+              ? null
+              : DateTime.parse(note['updated_at']),
+        );
+      }).toList();
+
+      notes.assignAll(notesListModel); // ✅ পুরোনো data replace করবে
+      update();
+    }
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadNotes();
+  }
+
+  void clearFields() {
+    titleController.clear();
+    discriptionController.clear();
+  }
 }
