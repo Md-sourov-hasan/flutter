@@ -119,9 +119,13 @@ void loadNotes() async{
         title: notes['title'],
          description: notes['descrption'],
           createdAt: DateTime.parse(notes['created_at']),
-          updatedAt: notes['updated_at']==null?null: DateTime.parse(notes['ypdated_at']),
+          updatedAt: notes['updated_at']=='null'?null : DateTime.now(),
           );
     }).toList();
+
+    notes.addAll(notesListModel);
+    update();
+    
   }
 }
 // Clear input fields
