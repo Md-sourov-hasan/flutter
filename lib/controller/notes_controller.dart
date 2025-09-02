@@ -107,6 +107,23 @@ void storeData() async {
   prefs.setString('notes', notesListString);
 }
 
+void loadNotes() async{
+  var prefs= await SharedPreferences.getInstance();
+
+  var notesListStrin=prefs.getString('notes');
+  if(notesListStrin!=null){
+    var notesListMap=jsonDecode(notesListStrin) as List;
+    var notesListModel=notesListMap.map((notes){
+
+      return NoteModel(
+        title: notes['title'],
+         description: notes['descrption'],
+          createdAt: DateTime.parse(notes['created_at']),
+          updatedAt: notes['updated_at']==null?null: DateTime.parse(notes['ypdated_at']),
+          );
+    }).toList();
+  }
+}
 // Clear input fields
 void clearFields() {
   titleController.clear();
