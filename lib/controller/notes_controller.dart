@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'package:first_app/models/note_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NotesController extends GetxController {
   // Reactive notes list using RxList
@@ -10,7 +12,6 @@ class NotesController extends GetxController {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController discriptionController = TextEditingController();
 
-  // Create a new note
   void createNote() {
     final title = titleController.text.trim();
     final description = discriptionController.text.trim();
@@ -36,6 +37,7 @@ class NotesController extends GetxController {
         updatedAt: null,
       ),
     );
+    storeData();
 
     clearFields();
 
@@ -85,11 +87,29 @@ class NotesController extends GetxController {
       backgroundColor: Colors.orange,
       colorText: Colors.white,
     );
+    storeData();
   }
 
-  // Clear input fields
-  void clearFields() {
-    titleController.clear();
-    discriptionController.clear();
-  }
+void storeData() async {
+  var prefs = await SharedPreferences.getInstance();
+
+  var notesListMap = notes.map((note) {
+    return {
+      'title': note.title,
+      'description': note.description,
+      'created_at': note.createdAt.toString(),
+      'updated_at': note.updatedAt.toString(),
+    };
+  }).toList();
+
+  var notesListString = jsonEncode(notesListMap);
+
+  prefs.setString('notes', notesListString);
+}
+
+// Clear input fields
+void clearFields() {
+  titleController.clear();
+  discriptionController.clear();
+}
 }
