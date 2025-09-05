@@ -1,7 +1,6 @@
+
 // No Money / No Cash I am The Fan Of Yellow Flash (Minato Namikaje )
 import 'package:first_app/pages/onboarding.dart';
-import 'package:first_app/pages/signin.dart';
-import 'package:first_app/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
