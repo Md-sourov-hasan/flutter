@@ -18,14 +18,16 @@ class HomeView extends StatelessWidget {
            IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag)),
         ],
       ),
-    body: Column(
-      children: [
-         CategorySection(),
-         SizedBox(height: 10,),
-           SliderSection(),
+    body: SingleChildScrollView(
+      child: Column(
+        children: [
+           CategorySection(),
            SizedBox(height: 10,),
-           ProductsSection(),
-      ],
+             SliderSection(),
+             SizedBox(height: 10,),
+             ProductsSection(),
+        ],
+      ),
     ),
     );
   }
