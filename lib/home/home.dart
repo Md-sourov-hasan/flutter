@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
         centerTitle: false,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-           IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag)),
+           IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
         ],
       ),
     body: SingleChildScrollView(
