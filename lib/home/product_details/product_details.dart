@@ -27,7 +27,10 @@ class ProductDetailsView extends StatelessWidget {
                 ),
               ),);
             }, 
-            options: CarouselOptions(),
+            options: CarouselOptions(
+              height: 300,
+              viewportFraction: 1,
+            ),
             )
         ],
       ),
