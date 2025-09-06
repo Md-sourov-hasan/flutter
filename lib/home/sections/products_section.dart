@@ -63,8 +63,8 @@ class ProductsSection extends StatelessWidget {
                  SizedBox(width: 5,),
                  Text('\$40',
                  style: TextStyle(
-                  fontSize: 12,
-                  color: const Color.fromARGB(115, 46, 44, 44),
+                  fontSize: 16,
+                  color: const Color.fromARGB(115, 24, 23, 23),
                   decoration: TextDecoration.lineThrough,
                  ),
                  ),
