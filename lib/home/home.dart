@@ -1,7 +1,10 @@
+import 'package:first_app/home/cart.dart';
 import 'package:first_app/home/category_section.dart';
 import 'package:first_app/home/sections/products_section.dart';
 import 'package:first_app/home/slider_section.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -15,7 +18,9 @@ class HomeView extends StatelessWidget {
         centerTitle: false,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-           IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
+           IconButton(onPressed: () {
+            Get.to(()=>CartView());
+           }, icon: Icon(Icons.shopping_cart)),
         ],
       ),
     body: SingleChildScrollView(
