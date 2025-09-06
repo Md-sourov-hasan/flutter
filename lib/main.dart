@@ -1,7 +1,9 @@
 
 // No Money / No Cash I am The Fan Of Yellow Flash (Minato Namikaje )
-import 'package:first_app/pages/onboarding.dart';
+import 'package:first_app/home/home.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Onboarding(),
+      home: HomeView(),
     );
   }
 }

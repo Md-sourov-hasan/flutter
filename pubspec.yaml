@@ -18,6 +18,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8 
   get: ^4.7.2       # iOS-style icons
+  carousel_slider: ^5.1.1
   shared_preferences: ^2.5.3
   uuid: ^4.3.3                   # UUID generator
   google_fonts: ^6.3.0          # Custom Google Fonts support
