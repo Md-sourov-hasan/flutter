@@ -88,6 +88,8 @@ class ProductDetailsView extends StatelessWidget {
         color: Colors.grey.shade200,
         child: Center(
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(onPressed: () {},
                child: Text('Add to cart')

@@ -10,9 +10,9 @@ class ProductSliderSection extends StatefulWidget {
 
 class _ProductSliderSectionState extends State<ProductSliderSection> {
   List<String> sliders = [
-    'https://eu-images.contentstack.com/v3/assets/blt7dcd2cfbc90d45de/bltca0defe0e9c1b630/67b844be273493d43a833ed1/28513-1.jpg?format=pjpg&auto=webp&quality=75%2C90&width=3840',
-    'https://zippo.co.za/cdn/shop/files/1OB36-03.png?v=1697700018',
-    'https://www.thebeachcompany.in/cdn/shop/products/121123901_g1_800x.jpg?v=1673418204'
+    'https://footballmonk.in/wp-content/uploads/2024/11/Japan-X-Uchiha-Itachi-Special-Edition-Jersey-1.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMrAlpIktNjYdUpwlnE9glQj3H6RmbAz_w6BsYjTL-imYJYlgKAK_TaSxRLievjdxhnM0&usqp=CAU',
+    'https://sakkanime.com/cdn/shop/files/Itachi_89e69622-8c83-47e4-be36-2d636aed2e54_800x.png?v=1717628034'
   ];
 
   int currentIndex = 0;
@@ -55,7 +55,7 @@ class _ProductSliderSectionState extends State<ProductSliderSection> {
             child: PageViewDotIndicator(
               currentItem: currentIndex,
               count: sliders.length,
-              unselectedColor: Colors.grey.withOpacity(0.6),
+              unselectedColor: Colors.grey,
               selectedColor: Colors.white,
             ),
           ),

@@ -58,7 +58,7 @@ class CartView extends StatelessWidget {
                             width: 20,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.amberAccent
+                              color: const Color.fromARGB(255, 139, 139, 135),
                             ),
                             child: Center(
                               child: Icon(Icons.remove,color: Colors.white, size: 15,),
@@ -77,7 +77,7 @@ class CartView extends StatelessWidget {
                             width: 20,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.amberAccent
+                              color: const Color.fromARGB(255, 139, 139, 135),
                             ),
                             child: Center(
                               child: Icon(Icons.add,color: Colors.white, size: 15,),
@@ -103,18 +103,21 @@ class CartView extends StatelessWidget {
         height: 60,
         color: Colors.grey.shade200,
         child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Total:\$500.00',
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-              ),
-              ),
-              ElevatedButton(onPressed: () {},
-               child: Text('cheakout')
-               ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Total:\$500.00',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                ),
+                ),
+                ElevatedButton(onPressed: () {},
+                 child: Text('cheakout')
+                 ),
+              ],
+            ),
           ),
         ),
       ),
