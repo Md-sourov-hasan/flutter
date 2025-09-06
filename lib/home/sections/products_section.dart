@@ -1,4 +1,7 @@
+import 'package:first_app/home/product_details/product_details.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 
 class ProductsSection extends StatelessWidget {
   const ProductsSection({super.key});
@@ -37,41 +40,46 @@ class ProductsSection extends StatelessWidget {
             childAspectRatio: 0.8,
             ),
              itemBuilder: (_,index) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 150,                   
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      image: DecorationImage(image: NetworkImage('https://www.uaejersey.com/cdn/shop/files/japan-itachi-special-edition-jersey-2425-556910.webp?v=1720110418',),
-                      fit: BoxFit.cover,
-                      )
+              return InkWell(
+                onTap: () {
+                  Get.to(()=>ProductDetailsView());
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 150,                   
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        image: DecorationImage(image: NetworkImage('https://www.uaejersey.com/cdn/shop/files/japan-itachi-special-edition-jersey-2425-556910.webp?v=1720110418',),
+                        fit: BoxFit.cover,
+                        )
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 5,),
-                  Text('Itachi Uchiha'),
-                  SizedBox(height: 5,),
-                  Row(
-                    children: [
-                      Text('\$35',
-                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                 ),
-                 ),
-                 SizedBox(width: 5,),
-                 Text('\$40',
-                 style: TextStyle(
-                  fontSize: 16,
-                  color: const Color.fromARGB(115, 24, 23, 23),
-                  decoration: TextDecoration.lineThrough,
-                 ),
-                 ),
-                    ],
-                  ),
-                 
-                ],
+                    SizedBox(height: 5,),
+                    Text('Itachi Uchiha'),
+                    SizedBox(height: 5,),
+                    Row(
+                      children: [
+                        Text('\$35',
+                   style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                   ),
+                   ),
+                   SizedBox(width: 5,),
+                   Text('\$40',
+                   style: TextStyle(
+                    fontSize: 16,
+                    color: const Color.fromARGB(115, 24, 23, 23),
+                    decoration: TextDecoration.lineThrough,
+                   ),
+                   ),
+                      ],
+                    ),
+                   
+                  ],
+                ),
               );
              },
              ),
