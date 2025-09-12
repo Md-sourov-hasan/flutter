@@ -7,36 +7,7 @@ class CategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map> height =[
-      {
-        'name': 'Fashion',
-        'icon': Icons.man,
-      },
-      {
-        'name':'electronics',
-        'icon':Icons.computer,
-      },
-      
-      {
-        'name':'aplication',
-        "icon":Icons.app_blocking,
-      },
-      {
-        'name': 'Fashion',
-        'icon': Icons.man,
-      },
-      {
-        'name':'electronics',
-        'icon':Icons.computer,
-      },
-      
-      {
-        'name':'aplication',
-        "icon":Icons.app_blocking,
-      },
-      
-      
-    ];
+   
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
