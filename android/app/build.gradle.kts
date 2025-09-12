@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
 }
@@ -20,7 +23,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.first_app"
-        minSdk = flutter.minSdkVersion
+        // 🔥 এখানে সরাসরি 23 সেট করো
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

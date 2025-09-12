@@ -20,6 +20,10 @@ dependencies:
   get: ^4.7.2       # iOS-style icons
   carousel_slider: ^5.1.1
   page_view_dot_indicator: ^2.3.0
+  intl: ^0.20.2
+  firebase_core: ^4.1.0
+  firebase_auth: ^6.0.2
+  cloud_firestore: ^6.0.1
   shared_preferences: ^2.5.3
   uuid: ^4.3.3                   # UUID generator
   google_fonts: ^6.3.0          # Custom Google Fonts support

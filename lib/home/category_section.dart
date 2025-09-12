@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 
 class CategorySection extends StatelessWidget {
@@ -5,7 +7,7 @@ class CategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map> Categories =[
+    List<Map> height =[
       {
         'name': 'Fashion',
         'icon': Icons.man,
@@ -58,30 +60,38 @@ class CategorySection extends StatelessWidget {
           ),
        
               SizedBox(height: 10,),
-            SizedBox(
+              StreamBuilder(
+                stream: FirebaseFirestore.instance.collection('categories').snapshots(), 
+                builder: (context,snapshot) {
+                  if(snapshot.connectionState==ConnectionState.waiting){
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  };
+                  if(snapshot.hasError){
+                    print('eror  is ${snapshot.error.toString()}');
+                  }
+                 return             SizedBox(
               height: 80,
               child: ListView.separated(
-                itemCount: Categories.length,
+                itemCount: snapshot.data!.docs.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index) {
-
-
+                  final Category=snapshot.data!.docs[index];
                   return Column(
                     children: [
                       Container(
                         height: 60,
                         width: 60,
+                        padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 224, 228, 224),
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(Categories[index]['icon'],
-                        color: Colors.green,
-                        size: 30,
-                        ),
+                        child: Image.network(Category['icon']),
                       ),
                       SizedBox(height: 5,),
-                      Text(Categories[index]['name'],
+                      Text(Category['name'],
                       style: TextStyle(
                         fontSize: 10,
                       ),
@@ -96,7 +106,9 @@ class CategorySection extends StatelessWidget {
                 }
                 
                 ),
-            )
+            );
+                },
+                ),
         ],
       ),
     );
