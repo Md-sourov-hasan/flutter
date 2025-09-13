@@ -24,10 +24,14 @@ class _ExpensesState extends State<Expenses> {
        category: Category.work,
        ),
   ];
+  void _openAddExpnseOverlay(){
+
+  }
   @override
   Widget build(BuildContext context) {
    return Scaffold(
     appBar: AppBar(
+      backgroundColor:    const Color.fromARGB(255, 165, 154, 113),
       title: Text('expense traker'),
       actions: [
       IconButton(
