@@ -25,17 +25,19 @@ class _ExpensesState extends State<Expenses> {
        ),
   ];
   void _openAddExpnseOverlay(){
-
+    showModalBottomSheet(context: context, builder: (ctx){
+      return  Text('model botttom sheet');
+    });
   }
   @override
   Widget build(BuildContext context) {
    return Scaffold(
     appBar: AppBar(
-      backgroundColor:    const Color.fromARGB(255, 165, 154, 113),
+      backgroundColor:    const Color.fromARGB(255, 143, 131, 89),
       title: Text('expense traker'),
       actions: [
       IconButton(
-        onPressed: (){},
+        onPressed: _openAddExpnseOverlay,
          icon: Icon(Icons.add))
       ],
     ),
