@@ -46,6 +46,8 @@ class _NewExpenseState extends State<NewExpense> {
           SizedBox(width: 16,),
           Expanded(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Selected Date'),
                 IconButton(onPressed: (){},
