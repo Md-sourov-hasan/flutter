@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:first_app/models/expense.dart';
 
+import 'package:intl/intl.dart';
+
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key});
 
@@ -12,81 +14,100 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  DateTime?_selectedDate;
-  void _presentDatePicker() async{
+  DateTime? _selectedDate;
+
+  final formatter = DateFormat.yMd(); // তারিখ ফরম্যাট
+
+  void _presentDatePicker() async {
     final now = DateTime.now();
-    final firstDate = DateTime(now.year - 1,now.month,now.day);
-    final pickedDate=await showDatePicker(
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
+    final pickedDate = await showDatePicker(
       context: context,
       initialDate: now,
-       firstDate: firstDate,
-     lastDate: now,
-     );
-     setState(() {
-       _selectedDate=pickedDate;
-     });
+      firstDate: firstDate,
+      lastDate: now,
+    );
+    setState(() {
+      _selectedDate = pickedDate;
+    });
   }
+
   @override
   void dispose() {
     _titleController.dispose();
     _amountController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        children:  [
+        children: [
           TextField(
-             controller: _titleController,
+            controller: _titleController,
             maxLength: 50,
-            decoration: InputDecoration(
-              label: Text('Title')
+            decoration: const InputDecoration(
+              label: Text('Title'),
             ),
           ),
           Row(
             children: [
               Expanded(
                 child: TextField(
-                            controller: _amountController,
-                            keyboardType: TextInputType.number,
-                
-                            decoration: InputDecoration(
-                prefixText: '\$',
-                label: Text('amount')
-                            ),
-                          ),
+                  controller: _amountController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    prefixText: '\$',
+                    label: Text('amount'),
+                  ),
+                ),
               ),
-          SizedBox(width: 16,),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(_selectedDate==null?' No Selected Date':formatter.format(_selectedDate!)),
-                IconButton(onPressed: _presentDatePicker,
-                 icon: Icon(Icons.calendar_month,
-                 ),
-                 )
-              ],
-            ),
-          ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(_selectedDate == null
+                        ? ' No Selected Date'
+                        : formatter.format(_selectedDate!)),
+                    IconButton(
+                      onPressed: _presentDatePicker,
+                      icon: const Icon(Icons.calendar_month),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
-
           Row(
             children: [
-              TextButton(onPressed: (){
-                Navigator.pop(context);
-              }, child: Text('cancel')),
-              ElevatedButton(onPressed: (){
-                print(_titleController.text);
-                print(_amountController);
-              },
-               child:Text('save expense'
-               ),
-                ),
+              DropdownButton<Category>(
+                items: Category.values.map((category) {
+                  return DropdownMenuItem(
+                    value: category,
+                    child: Text(category.name.toString()),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  print(value);
+                },
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('cancel'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print(_titleController.text);
+                  print(_amountController.text);
+                },
+                child: const Text('save expense'),
+              ),
             ],
           )
         ],
