@@ -88,7 +88,7 @@ class _NewExpenseState extends State<NewExpense> {
                 items: Category.values.map((category) {
                   return DropdownMenuItem(
                     value: category,
-                    child: Text(category.name.toString()),
+                    child: Text(category.name.toUpperCase()),
                   );
                 }).toList(),
                 onChanged: (value) {
