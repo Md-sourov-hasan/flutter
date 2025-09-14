@@ -15,6 +15,7 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
+  Category _selectedCategory=Category.leisure;
 
   final formatter = DateFormat.yMd(); // তারিখ ফরম্যাট
 
@@ -85,6 +86,7 @@ class _NewExpenseState extends State<NewExpense> {
           Row(
             children: [
               DropdownButton<Category>(
+                value: _selectedCategory,
                 items: Category.values.map((category) {
                   return DropdownMenuItem(
                     value: category,
@@ -92,9 +94,15 @@ class _NewExpenseState extends State<NewExpense> {
                   );
                 }).toList(),
                 onChanged: (value) {
-                  print(value);
+                  setState(() {
+                    if(value==null){
+                      return;
+                    }
+                    _selectedCategory=value;
+                  });
                 },
               ),
+              Spacer(),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
