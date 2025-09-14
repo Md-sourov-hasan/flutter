@@ -34,7 +34,7 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
    return Scaffold(
     appBar: AppBar(
-      backgroundColor:    const Color.fromARGB(255, 143, 131, 89),
+      backgroundColor:    const Color.fromARGB(255, 228, 226, 224),
       title: Text('expense traker'),
       actions: [
       IconButton(
