@@ -11,6 +11,9 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
+  void _presentDatePicker(){
+
+  }
   @override
   void dispose() {
     _titleController.dispose();
@@ -50,7 +53,7 @@ class _NewExpenseState extends State<NewExpense> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Selected Date'),
-                IconButton(onPressed: (){},
+                IconButton(onPressed: _presentDatePicker,
                  icon: Icon(Icons.calendar_month,
                  ),
                  )
