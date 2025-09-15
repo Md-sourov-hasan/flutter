@@ -7,9 +7,7 @@ class Expenses extends StatefulWidget {
   const Expenses({super.key});
 
   @override
-  State<Expenses> createState() {
-    return _ExpensesState();
-  }
+  State<Expenses> createState() => _ExpensesState();
 }
 
 class _ExpensesState extends State<Expenses> {
@@ -81,7 +79,6 @@ class _ExpensesState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 228, 226, 224),
         title: const Text('Expense Tracker'),
         actions: [
           IconButton(

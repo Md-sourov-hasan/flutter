@@ -1,25 +1,29 @@
 import 'package:first_app/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 
-var kColorScheme = ColorScheme.fromSeed(
-  seedColor: Colors.blue, // Seed color blue
-);
-
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: kColorScheme,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,         // FORCE blue background
-          foregroundColor: Colors.white,        // Text/icon color white
-          surfaceTintColor: Colors.transparent, // Remove Material3 overlay
-          elevation: 0,                         // Optional: remove shadow
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          surfaceTintColor: Colors.transparent,
+          elevation: 4,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-      home: Expenses(),
+      home: const Expenses(),
     ),
   );
 }
