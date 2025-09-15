@@ -45,39 +45,40 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
-    final expenseIndex=_registeredExpenses.indexOf(expense);
+    final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.remove(expense);
     });
     ScaffoldMessenger.of(context).clearMaterialBanners();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(
-          seconds: 3),
-          content: Text('expense deletes'),
-           action: SnackBarAction(
-            label: 'undo',
-             onPressed: (){
-              setState(() {
-                _registeredExpenses.insert(expenseIndex,expense);
-              });
-             }
-             ),
-             ),
-             );
+        duration: const Duration(seconds: 3),
+        content: const Text('Expense deleted'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _registeredExpenses.insert(expenseIndex, expense);
+            });
+          },
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget mainContent= Center(
-      child: Text('No expence found. Start adding some!'),
+    Widget mainContent = const Center(
+      child: Text('No expense found. Start adding some!'),
     );
-    if(_registeredExpenses.isEmpty){
-      mainContent=ExpensesList(
-              expenses: _registeredExpenses,
-              onRemoveExpense: _removeExpense,
-            );
+
+    if (_registeredExpenses.isNotEmpty) {
+      mainContent = ExpensesList(
+        expenses: _registeredExpenses,
+        onRemoveExpense: _removeExpense,
+      );
     }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 228, 226, 224),
