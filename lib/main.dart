@@ -2,7 +2,7 @@ import 'package:first_app/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
-  seedColor: Colors.blue, // seedColor blue set করলাম
+  seedColor: Colors.blue, // Seed color blue
 );
 
 void main() {
@@ -12,10 +12,11 @@ void main() {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: kColorScheme,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.blue, // সরাসরি blue রঙ ব্যবহার
-          foregroundColor: Colors.white,
-          surfaceTintColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,         // FORCE blue background
+          foregroundColor: Colors.white,        // Text/icon color white
+          surfaceTintColor: Colors.transparent, // Remove Material3 overlay
+          elevation: 0,                         // Optional: remove shadow
         ),
       ),
       home: Expenses(),
