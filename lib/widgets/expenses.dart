@@ -8,53 +8,72 @@ class Expenses extends StatefulWidget {
 
   @override
   State<Expenses> createState() {
-   return _ExpensesState();
+    return _ExpensesState();
   }
 }
 
 class _ExpensesState extends State<Expenses> {
-  final List<Expense>_registerdExpenses = [
-    Expense(title: 'FLUTTER COURSE',
-     amount: 19.99,
+  final List<Expense> _registeredExpenses = [
+    Expense(
+      title: 'FLUTTER COURSE',
+      amount: 19.99,
       date: DateTime.now(),
-       category: Category.leisure,
-       ),
-           Expense(title: 'demon slayer',
-     amount: 20.00,
+      category: Category.leisure,
+    ),
+    Expense(
+      title: 'Demon Slayer',
+      amount: 20.00,
       date: DateTime.now(),
-       category: Category.work,
-       ),
+      category: Category.work,
+    ),
   ];
-  void _openAddExpnseOverlay(){
-    showModalBottomSheet(isScrollControlled: true,context: context, builder: (ctx){
-      return  NewExpense(onAddExpense: _addExpense);
-    });
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) {
+        return NewExpense(onAddExpense: _addExpense);
+      },
+    );
   }
-  void _addExpense(Expense expense){
+
+  void _addExpense(Expense expense) {
     setState(() {
-      _registerdExpenses.add(expense);
+      _registeredExpenses.add(expense);
     });
-    
   }
+
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-    appBar: AppBar(
-      backgroundColor:    const Color.fromARGB(255, 228, 226, 224),
-      title: Text('expense traker'),
-      actions: [
-      IconButton(
-        onPressed: _openAddExpnseOverlay,
-         icon: Icon(Icons.add))
-      ],
-    ),
-    body: Column(
-      children: [
-        Text('The chart'),
-        Expanded(child: ExpensesLis(expenses: _registerdExpenses),
-        ),
-      ],
-    ),
-   );
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 228, 226, 224),
+        title: const Text('Expense Tracker'),
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverlay,
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          const Text('The chart'),
+          Expanded(
+            child: ExpensesList(
+              expenses: _registeredExpenses,
+              onRemoveExpense: _removeExpense,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

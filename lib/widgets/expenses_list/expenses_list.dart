@@ -1,18 +1,32 @@
-  import 'package:first_app/models/expense.dart';
+import 'package:first_app/models/expense.dart';
 import 'package:first_app/widgets/expenses_list/expense_item.dart';
 import 'package:flutter/material.dart';
 
-class ExpensesLis extends StatelessWidget {
-  const ExpensesLis({super.key,
-  required this.expenses,
+class ExpensesList extends StatelessWidget {
+  const ExpensesList({
+    super.key,
+    required this.expenses,
+    required this.onRemoveExpense,
   });
-  final List<Expense>expenses;
+
+  final List<Expense> expenses;
+  final void Function(Expense expense) onRemoveExpense;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: expenses.length,
-      itemBuilder: (context, index) => ExpenseItem(expense: expenses[index],),
+      itemBuilder: (context, index) => Dismissible(
+        key: ValueKey(expenses[index]),
+        background: Container(
+          color: Colors.red,
+          margin: const EdgeInsets.symmetric(horizontal: 8),
+        ),
+        onDismissed: (direction) {
+          onRemoveExpense(expenses[index]);
+        },
+        child: ExpenseItem(expense: expenses[index]),
+      ),
     );
   }
 }
