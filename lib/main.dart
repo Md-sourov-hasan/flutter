@@ -71,7 +71,7 @@ void main() {
       ),
 
       // Automatically switch based on system settings (light/dark)
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
 
       home: const Expenses(),
     ),
