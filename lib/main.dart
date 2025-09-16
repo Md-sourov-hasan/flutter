@@ -8,7 +8,7 @@ void main() {
     DeviceOrientation.portraitUp,
   ]).then((fn){
 
-  });
+  
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -97,5 +97,5 @@ void main() {
       // 🏠 Home widget
       home: const Expenses(),
     ),
-  );
+  );});
 }
