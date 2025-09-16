@@ -22,6 +22,18 @@ void main() {
             fontWeight: FontWeight.bold,
           ),
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueGrey,
+          ),
+        ),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.normal,
+            color: Colors.deepOrangeAccent,
+            fontSize: 14,
+          )
+        )
       ),
       home: const Expenses(),
     ),
