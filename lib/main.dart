@@ -1,7 +1,11 @@
 import 'package:first_app/widgets/expenses.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setPreferredOrientations([
+    
+  ]);
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
