@@ -1,8 +1,9 @@
-import 'package:first_app/models/expense.dart';
 import 'package:flutter/material.dart';
+import 'package:first_app/models/expense.dart';
 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem({super.key, required this.expense});
+
   final Expense expense;
 
   @override
@@ -18,10 +19,7 @@ class ExpenseItem extends StatelessWidget {
       ),
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 16,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,12 +38,12 @@ class ExpenseItem extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      CategoryIcons[expense.category],
+                      categoryIcons[expense.category],
                       color: textColor,
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      expense.formatteddate,
+                      expense.formattedDate,
                       style: TextStyle(color: textColor),
                     ),
                   ],
