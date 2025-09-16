@@ -29,9 +29,9 @@ void main() {
         ),
         textTheme: TextTheme(
           titleLarge: TextStyle(
-            fontWeight: FontWeight.normal,
-            color: Colors.deepOrangeAccent,
-            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: const Color.fromARGB(255, 73, 87, 150),
+            fontSize: 16,
           )
         )
       ),
