@@ -90,7 +90,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          Chart(expenses: _registeredExpenses), // ✅ Chart যোগ করা হয়েছে
+          Chart(expenses: _registeredExpenses), 
           Expanded(
             child: mainContent,
           ),
