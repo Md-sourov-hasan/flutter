@@ -1,15 +1,8 @@
-// No Money / No cash I am  The Fan of Yellow Flash 
+// No Money / No cash I am  The Fan of Yellow Flash
 import 'package:first_app/widgets/expenses.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  // ]).then((fn){
-
-  
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -19,8 +12,7 @@ void main() {
         useMaterial3: true,
         colorScheme: ColorScheme.light(
           primary: Colors.blue,
-          secondary: Colors.amber,
-          background: Color(0xFFF5F7FA), // light soft background
+          secondary: Colors.amber, // light soft background
           surface: Colors.white,
           onPrimary: Colors.white,
           onSecondary: Colors.black,
@@ -58,8 +50,7 @@ void main() {
         useMaterial3: true,
         colorScheme: ColorScheme.dark(
           primary: Colors.tealAccent,
-          secondary: Colors.deepOrange,
-          background: Color(0xFF121212), // dark background
+          secondary: Colors.deepOrange, // dark background
           surface: Color(0xFF1E1E1E), // card background
           onPrimary: Colors.black,
           onSecondary: Colors.white,
@@ -97,8 +88,8 @@ void main() {
 
       // 🏠 Home widget
       home: const Expenses(),
-    )
-    );
-  
+    ),
+  );
+
   // );});
 }
